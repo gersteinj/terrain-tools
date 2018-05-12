@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+
 var blob = new Path.Circle(view.center, 50);
 blob.strokeColor = "black";
 blob.strokeWidth = 5;
