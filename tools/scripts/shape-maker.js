@@ -1,4 +1,5 @@
-var totalPoints = parseInt(prompt('How many points?'), 10);
+// var totalPoints = parseInt(prompt('How many points?'), 10);
+var totalPoints = 7;
 var userPoints = [];
 var textSize = 20;
 var infoString = 'Total Points: ' + totalPoints + '\nPoints remaining: ' + (totalPoints - userPoints.length);
