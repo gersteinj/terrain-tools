@@ -1,42 +1,64 @@
-// var totalPoints = parseInt(prompt('How many points?'), 10);
-var totalPoints = 7;
-var userPoints = [];
-var textSize = 20;
-var infoString = 'Total Points: ' + totalPoints + '\nPoints remaining: ' + (totalPoints - userPoints.length);
+var blob = new Path.Circle(view.center, 50);
+blob.strokeColor = "black";
+blob.fillColor = "orchid";
 
-var text = new PointText({
-    point: new Point(20, 20 + textSize),
-    content: infoString,
-    justification: 'left',
-    fontSize: 30
-});
+var  clickHitOptions = {
+    segments: true,
+    stroke: true,
+    fill: true,
+    tolerance: 5
+}
 
+var moveHitOptions = {
+    segments: false,
+    stroke: false,
+    fill: true
+}
 
-var myPath = new Path();
-myPath.strokeColor = 'black';
-// myPath.dashArray = [10,5];
-var tempPath = new Path();
-tempPath.strokeColor = 'red';
-tempPath.dashArray = [10,5];
-tempPath.closed = true;
+var segment, path;
+var movePath = false;
+var hitResult;
+
+function onMouseMove(event) {
+    hitResult = project.hitTest(event.point, clickHitOptions);
+
+    if(hitResult) {
+        hitResult.item.selected = true;
+    } else {
+        project.deselectAll();
+    }
+}
+
 
 function onMouseDown(event) {
-    if (userPoints.length < totalPoints) {
-        var p = event.point
-        userPoints.push(p);
-        myPath.add(p);
-        tempPath.add(p);
-        console.log(p);
-        tempPath.smooth();
-        infoString = 'Total Points: ' + totalPoints + '\nPoints remaining: ' + (totalPoints - userPoints.length);
-        text.content = infoString;
-    }
-    if (userPoints.length === totalPoints) {
-        console.log('got them all!');
-        myPath.closed = true;
-        myPath.smooth();
-        tempPath.remove();
-        // myPath.fullySelected = true;
-    }
+    segment = path = null;
+    // var hitResult = project.hitTest(event.point, clickHitOptions);
     
+    if(!hitResult) {
+        return;
+    }
+
+    if (hitResult) {
+        console.log(hitResult);
+        path = hitResult.item;
+        path.selected = true;
+        
+        if (hitResult.type == 'segment') {
+            segment = hitResult.segment;
+        } else if(hitResult.type == 'stroke') {
+            var location = hitResult.location;
+            segment = path.insert(location.index + 1, event.point);
+            path.smooth();
+        }
+    }
+}
+
+function onMouseDrag(event) {
+    if (segment) {
+        segment.point += event.delta;
+        path.smooth();
+    }
+    else if (path) {
+        path.position += event.delta;
+    }
 }
