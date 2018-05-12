@@ -4,8 +4,8 @@ $( document ).ready(function() {
 
 var blob = new Path.Circle(view.center, 50);
 blob.strokeColor = "black";
-blob.strokeWidth = 5;
-blob.fillColor = "teal";
+blob.strokeWidth = 1;
+blob.fillColor = "orchid";
 
 var  clickHitOptions = {
     segments: true,
