@@ -1,10 +1,55 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="css/shape-maker.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="css/shape-maker.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.js"></script>
-    <script type="text/paperscript" src="scripts/shape-maker.js" canvas="myCanvas"></script>
+    <script type="text/paperscript" src="scripts/shape-maker.js" canvas="terrainCanvas"></script>
+    <title>Document</title>
 </head>
 <body>
-    <canvas id="myCanvas" resize></canvas>
+    <header>
+        <nav>
+            <div class="nav-wrapper blue">
+                <a href="#" class="brand-logo">Terrain Maker</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <canvas style="width:100%;height:100%" id="terrainCanvas" resize></canvas>
+    </main>
+    <footer class="page-footer blue">
+        <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                    <h5 class="white-text">Robots in Heels</h5>
+                    <p class="grey-text text-lighten-4">Jackie Gerstein is a technology teacher at Union County Magnet High School in Scotch Plains, New Jersey. 
+                    </div>
+                    <div class="col l6 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#">GitHub</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Power Racing Series</a></li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+                <div class="footer-copyright">
+                <div class="container">
+                    ©2018 Jackie Gerstein
+                </div>
+                </div>
+    </footer>
 </body>
 </html>

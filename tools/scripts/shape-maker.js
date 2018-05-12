@@ -1,6 +1,7 @@
 var blob = new Path.Circle(view.center, 50);
 blob.strokeColor = "black";
-blob.fillColor = "orchid";
+blob.strokeWidth = 5;
+blob.fillColor = "teal";
 
 var  clickHitOptions = {
     segments: true,
@@ -41,6 +42,7 @@ function onMouseDown(event) {
     if(event.modifiers.shift) {
         if(hitResult.type == 'segment') {
             hitResult.segment.remove();
+            path.close();
             path.smooth();
         }
     }
