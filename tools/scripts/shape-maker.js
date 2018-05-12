@@ -38,6 +38,12 @@ function onMouseDown(event) {
         return;
     }
 
+    if(event.modifiers.shift) {
+        if(hitResult.type == 'segment') {
+            hitResult.segment.remove();
+        }
+    }
+
     if (hitResult) {
         console.log(hitResult);
         path = hitResult.item;
