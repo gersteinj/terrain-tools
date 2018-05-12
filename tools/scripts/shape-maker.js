@@ -41,6 +41,7 @@ function onMouseDown(event) {
     if(event.modifiers.shift) {
         if(hitResult.type == 'segment') {
             hitResult.segment.remove();
+            path.smooth();
         }
     }
 
