@@ -24,6 +24,15 @@ var segment, path;
 var movePath = false;
 var hitResult;
 
+var downloadAsSVG = function (fileName) {
+    var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
+
+    var link = document.createElement("a");
+    link.download = fileName;
+    link.href = url;
+    link.click();
+}
+
 function onKeyDown(event) {
     if (event.key == 'r') {
         blob.fillColor = "red";
@@ -32,7 +41,7 @@ function onKeyDown(event) {
     } else if (event.key == 'b') {
         blob.fillColor = "blue";
     } else if (event.key == 'x') {
-        console.log("this will eventually export")
+        console.log(downloadAsSVG(prompt('Filename?')));
     }
 }
 
