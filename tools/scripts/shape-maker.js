@@ -27,6 +27,10 @@ var hitResult;
 var downloadAsSVG = function (fileName) {
     var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
 
+    if(!fileName) {
+        fileName = "TerrainMaker"
+    }
+
     var link = document.createElement("a");
     link.download = fileName;
     link.href = url;
@@ -34,13 +38,14 @@ var downloadAsSVG = function (fileName) {
 }
 
 function onKeyDown(event) {
-    if (event.key == 'r') {
-        blob.fillColor = "red";
-    } else if (event.key == 'g') {
-        blob.fillColor = "green";
-    } else if (event.key == 'b') {
-        blob.fillColor = "blue";
-    } else if (event.key == 'x') {
+    // if (event.key == 'r') {
+    //     blob.fillColor = "red";
+    // } else if (event.key == 'g') {
+    //     blob.fillColor = "green";
+    // } else if (event.key == 'b') {
+    //     blob.fillColor = "blue";
+    // } else if (event.key == 'x') {
+    if (event.key == 'x') {
         console.log(downloadAsSVG(prompt('Filename?')));
     }
 }
