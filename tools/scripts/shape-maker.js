@@ -24,6 +24,18 @@ var segment, path;
 var movePath = false;
 var hitResult;
 
+function onKeyDown(event) {
+    if (event.key == 'r') {
+        blob.fillColor = "red";
+    } else if (event.key == 'g') {
+        blob.fillColor = "green";
+    } else if (event.key == 'b') {
+        blob.fillColor = "blue";
+    } else if (event.key == 'x') {
+        console.log("this will eventually export")
+    }
+}
+
 function onMouseMove(event) {
     hitResult = project.hitTest(event.point, clickHitOptions);
 
