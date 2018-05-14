@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     $('.collapsible').collapsible();
-    $('.modal').modal();
+    // $('.modal').modal();
     $('.modal').modal(open())
 });
 
@@ -12,7 +12,7 @@ $( "#export-button" ).click(function(){
 var blob = new Path.Circle(view.center, 50);
 blob.strokeColor = "black";
 blob.strokeWidth = 1;
-blob.fillColor = "orchid";
+blob.fillColor = "yellowgreen";
 
 var  clickHitOptions = {
     segments: true,

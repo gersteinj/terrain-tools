@@ -16,7 +16,7 @@
 <body>
     <header>
         <nav>
-            <div class="nav-wrapper blue">
+            <div class="nav-wrapper deep-purple darken-4">
                 <a href="#" class="brand-logo">Terrain Maker</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <!-- <li><a class="waves-effect waves-light btn modal-trigger" href="#help-modal">Help</a></li> -->
@@ -30,7 +30,7 @@
             </div>
         </nav>
         <div id="help-modal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content ">
                 <h4>Help</h4>
                 <ul class="browser-default">
                     <li>Click and drag on the edges to rearrange anchor points</li>
@@ -39,6 +39,9 @@
                     <li>Drag the inside of the shape to move it</li>
                     <li>Use the <kbd>x</kbd> key or click the download button to export. When prompted for the filename, give a name without the extension</li>                                
                 </ul>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-purple btn-flat">close</a>
             </div>
         </div>
         <div id="features-modal" class="modal">
@@ -59,12 +62,15 @@
                     <li>Create multiple shapes</li>
                 </ul>
             </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-purple btn-flat">close</a>
+            </div>
         </div>
     </header>
     <main>           
         <canvas style="width:100%;height:100%" id="terrainCanvas" resize></canvas>
     </main>
-    <footer class="page-footer blue">
+    <footer class="page-footer deep-purple darken-4">
         <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
