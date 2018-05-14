@@ -1,6 +1,8 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     $('.collapsible').collapsible();
+    $('.modal').modal();
+    $('.modal').modal(open())
 });
 
 $( "#export-button" ).click(function(){
