@@ -1,30 +1,25 @@
 $( document ).ready(function() {
+    // Everything in here will run once the document is ready
     console.log( "ready!" );
     $('.collapsible').collapsible();
-    // $('.modal').modal();
-    $('.modal').modal(open())
+    $('.modal').modal();
+    $( "#export-button" ).click(function(){
+        downloadAsSVG(prompt('Filename?'));
+    })
 });
 
-$( "#export-button" ).click(function(){
-    downloadAsSVG(prompt('Filename?'));
-})
-
+// Create the initial blob
 var blob = new Path.Circle(view.center, 50);
 blob.strokeColor = "black";
 blob.strokeWidth = 1;
 blob.fillColor = "yellowgreen";
 
-var  clickHitOptions = {
+// Options for the hit test
+var  hitOptions = {
     segments: true,
     stroke: true,
     fill: true,
     tolerance: 5
-}
-
-var moveHitOptions = {
-    segments: false,
-    stroke: false,
-    fill: true
 }
 
 var segment, path;
@@ -44,21 +39,8 @@ var downloadAsSVG = function (fileName) {
     link.click();
 }
 
-function onKeyDown(event) {
-    // if (event.key == 'r') {
-    //     blob.fillColor = "red";
-    // } else if (event.key == 'g') {
-    //     blob.fillColor = "green";
-    // } else if (event.key == 'b') {
-    //     blob.fillColor = "blue";
-    // } else if (event.key == 'x') {
-    if (event.key == 'x') {
-        console.log(downloadAsSVG(prompt('Filename?')));
-    }
-}
-
 function onMouseMove(event) {
-    hitResult = project.hitTest(event.point, clickHitOptions);
+    hitResult = project.hitTest(event.point, hitOptions);
 
     if(hitResult) {
         hitResult.item.selected = true;
@@ -66,7 +48,6 @@ function onMouseMove(event) {
         project.deselectAll();
     }
 }
-
 
 function onMouseDown(event) {
     segment = path = null;
