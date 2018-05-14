@@ -1,6 +1,11 @@
 $( document ).ready(function() {
     console.log( "ready!" );
+    $('.collapsible').collapsible();
 });
+
+$( "#export-button" ).click(function(){
+    downloadAsSVG(prompt('Filename?'));
+})
 
 var blob = new Path.Circle(view.center, 50);
 blob.strokeColor = "black";

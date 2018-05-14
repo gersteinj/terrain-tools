@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="css/shape-maker.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.js"></script>
@@ -27,50 +28,48 @@
     </header>
     <main>
         <div class="row">
-            <div class="col s12 l3">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Terrain Generator</span>
-                        This is a tool to easily generate bases for tabletop gaming scatter terrain.
-                    </div>
-                    <div class="card-tabs">
-                        <ul class="tabs tabs-fixed-width">
-                            <li class="tab"><a href="#features">Features</a></li>
-                            <li class="tab"><a href="#usage">Usage</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-content">
-                        <div id="features">
-                            <p class="card-title">Current features</p>
-                            <ul>
-                                <li>Add points</li>
-                                <li>Move points</li>
-                                <li>Delete points</li>
-                                <li>Move entire shape</li>                               
-                            </ul>
-                            <p class="card-title">Planned Features</p>
-                            <ul>
-                                <li>Export SVG</li>
-                                <li>Sizing grid</li>
-                                <li>Sample bases for sizing</li>
-                                <li>Order manufactured parts</li>
-                                <li>Create multiple shapes</li>
-                            </ul>
-                        </div>
-                        <div id="usage">
-                            <ul>
+            <div class="col s12 l2">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header active"><i class="material-icons">expand_more</i>How to Use</div>
+                        <div class="collapsible-body">
+                            <ul class="browser-default">
                                 <li>Click and drag on the edges to rearrange anchor points</li>
                                 <li>If there isn't a point where you click, one will be created</li>
                                 <li>To delete an anchor point, <kbd>shift</kbd> + click the point</li>
                                 <li>Drag the inside of the shape to move it</li>
                                 <!-- <li>Use the <kbd>r</kbd>, <kbd>g</kbd>, or <kbd>b</kbd> keys to change the color</li> -->
-                                <li>Use the <kbd>x</kbd> key to export. When prompted for the filename, give a name without the extension</li>
+                                <li>Use the <kbd>x</kbd> key or click the download button to export. When prompted for the filename, give a name without the extension</li>                                
                             </ul>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">expand_more</i>Current Features</div>
+                        <div class="collapsible-body">
+                            <ul class="browser-default">
+                                <li>Add points</li>
+                                <li>Move points</li>
+                                <li>Delete points</li>
+                                <li>Move entire shape</li>   
+                                <li>Export as SVG</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">expand_more</i>Planned Features</div>
+                        <div class="collapsible-body">
+                            <ul class="browser-default">
+                                    <li>Sizing grid</li>
+                                    <li>Sample bases for sizing</li>
+                                    <li>Order manufactured parts</li>
+                                    <li>Create multiple shapes</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <input type="button" class="btn waves-effect waves-light" value="download" id="export-button">
             </div>
-            <div class="col s12 l9">
+            <div class="col s12 l10">
                 <canvas style="width:100%;height:100%" id="terrainCanvas" resize></canvas>
             </div>
         </div>
