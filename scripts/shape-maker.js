@@ -5,14 +5,24 @@ $( document ).ready(function() {
     $('.modal').modal();
     $( "#export-button" ).click(function(){
         downloadAsSVG(prompt('Filename?'));
-    })
+    });
+    $( "#new-blob" ).click(function(){
+        console.log('make a new blob');
+        makeBlob();
+    });
 });
 
-// Create the initial blob
-var blob = new Path.Circle(view.center, 50);
-blob.strokeColor = "black";
-blob.strokeWidth = 1;
-blob.fillColor = "yellowgreen";
+
+
+function makeBlob() {
+// Create a blob
+    var blob = new Path.Circle(view.center, 50);
+    blob.strokeColor = "black";
+    blob.strokeWidth = 3;
+    blob.fillColor = "yellowgreen";
+}
+
+
 
 // Options for the hit test
 var  hitOptions = {
